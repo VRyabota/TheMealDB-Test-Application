@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">4Limes Test</string>
 
+    <string name="app_text_exit">Press again to close app</string>
+
     <string name="meal_category">Category: %1$s</string>
     <string name="meal_youtube_link"><u>Youtube</u></string>
+
+    <string name="dialog_close">Close</string>
+    <string name="dialog_title_error">Error</string>
+
+    <string name="dialog_error_connection">Check your internet connection</string>
+    <string name="dialog_error_timeout">Request timeout</string>
+    <string name="dialog_error_undefined">Oops, something went wrong..</string>
 </resources>

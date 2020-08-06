@@ -8,7 +8,10 @@
     <color name="colorDivider">#1F000000</color>
 
     <color name="colorBackgroundWhite">#ffffff</color>
-    <color name="colorBackgroundBlackFaded">#40000000</color>
+    <color name="colorBackgroundBlackFaded">#66000000</color>
+    <color name="colorBackgroundBlack">#000000</color>
 
     <color name="colorTextBlack">#000000</color>
+    <color name="colorTextWhite">#ffffff</color>
+    <color name="colorTextWhiteFaded">#D9FFFFFF</color>
 </resources>
