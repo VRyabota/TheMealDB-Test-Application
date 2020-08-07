@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
 import com.vrb.apps.themealdb.data.models.typeconverters.IngredientsConverter
-import com.vrb.apps.themealdb.data.models.typeconverters.NullValueConverter
 
 @Entity(tableName = "meals")
 @TypeConverters(IngredientsConverter::class)

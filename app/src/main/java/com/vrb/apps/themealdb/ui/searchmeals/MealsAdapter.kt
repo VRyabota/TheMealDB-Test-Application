@@ -51,15 +51,12 @@ class MealsAdapter(
         with(holder.itemView) {
 
             this.visibility = View.VISIBLE
-            /*this.post {
-                val lp = this.layoutParams
-                lp.height = this.width
-                this.layoutParams = lp
-            }*/
 
-            glide.load(meal.imageLink)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(this.itemMealImage)
+            this.post {
+                glide.load(meal.imageLink)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(this.itemMealImage)
+            }
 
             this.itemMealName.text = meal.name
             this.itemMealCategory.text = context.getString(R.string.meal_category, meal.category)
