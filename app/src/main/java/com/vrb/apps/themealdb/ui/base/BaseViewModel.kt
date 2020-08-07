@@ -13,17 +13,37 @@ abstract class BaseViewModel : ViewModel() {
         LOADING
     }
 
-    protected fun <T> makeApiCall(dispatcher: CoroutineDispatcher, apiCall: suspend () -> T) =
+    enum class DataAccessStrategy {
+        LOCAL,
+        REMOTE
+    }
+
+    protected fun <T> performGetOperation(
+        dispatcher: CoroutineDispatcher,
+        accessStrategy: DataAccessStrategy,
+        localCall: (suspend () -> T)? = null,
+        apiCall: (suspend () -> T)? = null
+    ) =
         liveData(dispatcher) {
-            emit(Result.loading())
-            try {
-                val result = apiCall()
-                emit(Result.success(result))
-            } catch (throwable: Throwable) {
-                Timber.e(throwable, "Api call error")
-                emit(Result.error(null, throwable))
+            when (accessStrategy) {
+                DataAccessStrategy.LOCAL -> {
+                    emit(Result.success(localCall?.invoke()))
+                }
+
+                DataAccessStrategy.REMOTE -> {
+                    emit(Result.loading())
+                    try {
+                        val result = apiCall?.invoke()
+                        emit(Result.success(result))
+                    } catch (throwable: Throwable) {
+                        Timber.e(throwable, "Api call error")
+                        emit(Result.error(null, throwable))
+                    }
+                }
             }
         }
+
+    data class GetOperation<out T>(val accessStrategy: DataAccessStrategy, val localCall: (suspend () -> T)? = null, val apiCall: (suspend () -> T)? = null)
 
     data class Result<out T>(val status: Status, val data: T?, val error: Throwable?) {
         companion object {

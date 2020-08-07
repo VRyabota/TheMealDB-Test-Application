@@ -1,4 +1,4 @@
-package com.vrb.apps.themealdb.data.remote.models
+package com.vrb.apps.themealdb.data.models
 
 import com.google.gson.annotations.SerializedName
 

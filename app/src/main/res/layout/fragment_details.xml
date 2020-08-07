@@ -31,76 +31,78 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:padding="20dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/detailsMealImage"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
                     android:adjustViewBounds="true"
-                    app:layout_constraintEnd_toEndOf="@id/guideline"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/detailsMealName"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorTextBlack"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/guideline"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Teriyaki Chicken Casserole" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/detailsMealCategory"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintBottom_toTopOf="@id/detailsMealArea"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/guideline"
-                    app:layout_constraintTop_toBottomOf="@id/detailsMealName"
-                    app:layout_constraintVertical_bias="1"
-                    app:layout_constraintVertical_chainStyle="packed"
-                    tools:text="Category: Chicken" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/detailsMealArea"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:lines="1"
-                    android:maxLines="1"
-                    app:layout_constraintBottom_toTopOf="@id/detailsMealYoutubeLink"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/guideline"
-                    app:layout_constraintTop_toBottomOf="@id/detailsMealCategory"
-                    tools:text="Japanese" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/detailsMealYoutubeLink"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:lines="1"
-                    android:maxLines="1"
-                    android:text="@string/meal_youtube_link"
-                    android:textColor="@color/colorLink"
-                    app:layout_constraintBottom_toTopOf="@id/barrier"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/guideline"
-                    app:layout_constraintTop_toBottomOf="@id/detailsMealArea" />
-
-                <FrameLayout
-                    android:id="@+id/detailsDividerTop"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@color/colorDivider"
-                    app:layout_constraintTop_toTopOf="@id/barrier" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBackgroundBlackFaded"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="@id/detailsMealImage">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/detailsMealName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextWhite"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Teriyaki Chicken Casserole" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/detailsMealCategory"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/colorTextWhiteFaded"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@id/detailsMealArea"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/detailsMealName"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        tools:text="Category: Chicken" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/detailsMealArea"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:textColor="@color/colorTextWhiteFaded"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@id/detailsMealYoutubeLink"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/detailsMealCategory"
+                        tools:text="Japanese" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/detailsMealYoutubeLink"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:text="@string/meal_youtube_link"
+                        android:textColor="@color/colorLink"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/detailsMealArea" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/detailsMealIngredientsTitle"
@@ -108,24 +110,28 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="Ingredients:"
+                    android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/barrier" />
+                    app:layout_constraintTop_toBottomOf="@id/detailsMealImage" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/detailsMealIngredientsRecycler"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
+                    android:overScrollMode="never"
                     app:layout_constraintTop_toBottomOf="@id/detailsMealIngredientsTitle"
                     tools:itemCount="6"
                     tools:listitem="@layout/item_ingredient" />
 
-                <FrameLayout
-                    android:id="@+id/detailsDividerBottom"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@color/colorDivider"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/detailsMealInstructionsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Instructions:"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/detailsMealIngredientsRecycler" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -135,7 +141,7 @@
                     android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/detailsDividerBottom" />
+                    app:layout_constraintTop_toBottomOf="@id/detailsMealInstructionsTitle" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline"
@@ -143,13 +149,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.4" />
-
-                <androidx.constraintlayout.widget.Barrier
-                    android:id="@+id/barrier"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:barrierDirection="bottom"
-                    app:constraint_referenced_ids="detailsMealImage,detailsMealYoutubeLink" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>

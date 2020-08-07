@@ -4,9 +4,9 @@ import com.google.gson.Gson
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer
 import com.google.gson.JsonElement
-import com.vrb.apps.themealdb.data.remote.models.Ingredient
-import com.vrb.apps.themealdb.data.remote.models.Meal
-import com.vrb.apps.themealdb.data.remote.models.MealsList
+import com.vrb.apps.themealdb.data.models.Ingredient
+import com.vrb.apps.themealdb.data.models.Meal
+import com.vrb.apps.themealdb.data.models.MealsList
 import java.lang.reflect.Type
 
 class MealsDeserializer : JsonDeserializer<MealsList> {
@@ -20,28 +20,36 @@ class MealsDeserializer : JsonDeserializer<MealsList> {
         val result = mutableListOf<Meal>()
 
         val jsonObject = json?.asJsonObject
-        val mealsArray = jsonObject?.getAsJsonArray("meals")
-        val gson = Gson()
+        val mealsArray = jsonObject?.get("meals")
 
-        val ingredientsList = mutableListOf<Ingredient>()
+        if (mealsArray?.isJsonNull == true){
+            return MealsList(emptyList())
+        } else {
+            val gson = Gson()
 
-        mealsArray?.forEach {
-            val meal = gson.fromJson(it, Meal::class.java)
-            val currentJsonObject = it.asJsonObject
+            val ingredientsList = mutableListOf<Ingredient>()
 
-            for (i in 1 until 20) {
+            mealsArray?.asJsonArray?.forEach {
+                val meal = gson.fromJson(it, Meal::class.java)
+                val currentJsonObject = it.asJsonObject
+                ingredientsList.clear()
 
-                val ingredientName = currentJsonObject.get("strIngredient$i").toString()
-                val ingredientMeasure = currentJsonObject.get("strMeasure$i").toString()
+                for (i in 1 until 21) {
 
-                ingredientsList.add(Ingredient(ingredientName, ingredientMeasure))
+                    val ingredientName = currentJsonObject.get("strIngredient$i").toString().replace("\"", "")
+                    val ingredientMeasure = currentJsonObject.get("strMeasure$i").toString().replace("\"", "")
+
+                    if (ingredientName.isNotBlank() && ingredientMeasure.isNotBlank()) {
+                        ingredientsList.add(Ingredient(ingredientName, ingredientMeasure))
+                    }
+                }
+
+                meal.ingredients = ingredientsList
+                result.add(meal)
             }
 
-            meal.ingredients = ingredientsList
-            result.add(meal)
+            return MealsList(result)
         }
-
-        return MealsList(result)
     }
 
 }

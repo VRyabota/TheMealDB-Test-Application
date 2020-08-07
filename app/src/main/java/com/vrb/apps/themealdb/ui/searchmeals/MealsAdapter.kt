@@ -1,21 +1,15 @@
 package com.vrb.apps.themealdb.ui.searchmeals
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import com.vrb.apps.themealdb.R
-import com.vrb.apps.themealdb.data.remote.models.Meal
+import com.vrb.apps.themealdb.data.models.Meal
+import com.vrb.apps.themealdb.utils.UniversalViewHolder
 import kotlinx.android.synthetic.main.item_meal.view.*
 
 class MealsAdapter(
@@ -56,12 +50,12 @@ class MealsAdapter(
 
         with(holder.itemView) {
 
-            this.post {
+            this.visibility = View.VISIBLE
+            /*this.post {
                 val lp = this.layoutParams
                 lp.height = this.width
                 this.layoutParams = lp
-                this.visibility = View.VISIBLE
-            }
+            }*/
 
             glide.load(meal.imageLink)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -72,6 +66,4 @@ class MealsAdapter(
             this.itemMealArea.text = meal.area
         }
     }
-
-    class UniversalViewHolder(view: View) : RecyclerView.ViewHolder(view)
 }

@@ -4,6 +4,7 @@
     <string name="app_text_exit">Press again to close app</string>
 
     <string name="meal_category">Category: %1$s</string>
+    <string name="meal_area">Area: %1$s</string>
     <string name="meal_youtube_link"><u>Youtube</u></string>
 
     <string name="dialog_close">Close</string>

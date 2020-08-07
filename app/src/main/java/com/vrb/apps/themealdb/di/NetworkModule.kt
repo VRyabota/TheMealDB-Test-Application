@@ -3,7 +3,7 @@ package com.vrb.apps.themealdb.di
 import com.google.gson.GsonBuilder
 import com.vrb.apps.themealdb.BuildConfig
 import com.vrb.apps.themealdb.data.remote.api.MealDBApi
-import com.vrb.apps.themealdb.data.remote.models.MealsList
+import com.vrb.apps.themealdb.data.models.MealsList
 import com.vrb.apps.themealdb.utils.deserializer.MealsDeserializer
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -39,7 +39,7 @@ fun provideOkHttpClient(): OkHttpClient {
         .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
 
     if (BuildConfig.DEBUG) {
-        client.addInterceptor(httpInterceptor)
+//        client.addInterceptor(httpInterceptor)
     }
 
     return client.build()
